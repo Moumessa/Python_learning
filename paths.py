@@ -41,3 +41,56 @@ with open(path, mode='r', encoding='utf-8') as f :
     headers = [line.strip() for line in f if line.startswith('#')]
 
     print(headers)
+
+    # from pathlib import Path
+
+new_dir = Path("/path/to/new/directory")
+
+# change the current working directory
+new_dir.mkdir(parents=True, exist_ok=True)  # create the directory if it doesn't exist
+print(Path.cwd().resolve().joinpath(new_dir).exists())  # Check if the new directory exists
+
+print('jointpath-new_dir :',Path.cwd().resolve().joinpath(new_dir))
+
+print("Path.cwd() :", Path.cwd())
+
+print("Path.cwd().resolve() :",Path.cwd().resolve())
+
+print(Path('/').is_absolute())
+print(Path('..').is_absolute())
+
+print(Path('/etc/passwd').relative_to('/etc/passwd'))
+
+print(Path('/etc').exists())
+
+print(Path('/home').is_file())
+
+print(Path('setup.py').is_file())
+
+print('---- stat-----',Path('.').stat())
+
+print('------ printing all files in dir ------')
+for f in Path('./').iterdir():
+    print(f, f.stat().st_size)
+
+total_size = 0
+
+for sub_path in Path('.').iterdir():
+    total_size += sub_path.stat().st_size
+
+print(total_size)
+
+for path, sub_dirs, files in os.walk('.'):
+    print('---- path :', path)
+    print('---- sub_dirs :', sub_dirs)
+    print('---- files :', files)
+
+
+#--- *args and **kwargs
+def some_function(*args, **kwargs):
+    print('args :', args)
+    print('kwargs :', kwargs)
+    print(kwargs.get(args[0]))
+
+
+some_function('key3', key1='arg1', key2='arg2', key3='arg3')

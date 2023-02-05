@@ -1,4 +1,12 @@
 # Python_learning
- Python review february 2023
+ We propose to review core Python programming concepts aimed at Python learners.
 
- # Title line 2
+# Beginner level
+- Lists, tuples, and dictionnaries
+
+# Intermediate level
+
+# Advanced level
+
+Concepts covered are :
+- Context managers
