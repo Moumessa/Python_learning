@@ -94,3 +94,13 @@ def some_function(*args, **kwargs):
 
 
 some_function('key3', key1='arg1', key2='arg2', key3='arg3')
+
+
+gv = 10
+
+def myFunc(gv):
+    gv = 20
+
+print(gv)
+print(myFunc(3))
+print(gv)
